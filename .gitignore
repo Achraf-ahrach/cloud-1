@@ -1,0 +1,4 @@
+.vscode/
+.vagrant/
+.env
+.DS_Store

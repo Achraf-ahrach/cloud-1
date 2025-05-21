@@ -69,7 +69,7 @@ git clone github.com:Achraf-ahrach/cloud-1.git
 cd cloud-1
 ```
 
-2. Configure inventory:
+2. **Clone this repository:**
 
 Edit `inventory.ini` and replace with your server's IP:
 
@@ -78,7 +78,7 @@ Edit `inventory.ini` and replace with your server's IP:
 cloud-1-vm1 ansible_host=YOUR.SERVER.IP ansible_user=root ansible_ssh_private_key_file=~/.ssh/id_ed25519
 ```
 
-3. Create and configure `.env`:
+3. **Create and configure `.env`:**
 
 ```
 cp .env.example .env
@@ -87,7 +87,7 @@ vim .env
 
 Fill in required variables like database password, domain, etc.
 
-4. Encrypt your `.env` with Ansible Vault: 🔐
+4. **Encrypt your `.env` with Ansible Vault: 🔐**
 
 To keep your sensitive environment variables secure, encrypt your `.env` file before deploying:
 
@@ -106,7 +106,7 @@ ansible-vault encrypt .env --output rules/templates/data.j2
   > - You will be prompted to enter a Vault password during encryption and when running the playbook.
   > - Keep your Vault password safe and **never commit it to any public repository** .
 
-  5. Run the playbook:
+  5. **Run the playbook:**
 
      Execute the Ansible playbook to deploy the entire stack:
 
@@ -114,7 +114,7 @@ ansible-vault encrypt .env --output rules/templates/data.j2
      ansible-playbook -i inventory.ini playbook.yml --ask-vault-pass
      ```
 
-     6.Access your application:
+     6. **Access your application:**
 
 - Open your browser and visit your server’s IP or configured domain
 - Complete the WordPress setup wizard

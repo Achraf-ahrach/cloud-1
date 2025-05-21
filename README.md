@@ -151,7 +151,7 @@ ansible-playbook -i inventory.ini playbook.yml --ask-vault-pass
 ## 📫 Contact
 
 **Rémy Léone**  
-[rleone@scaleway.com](mailto:rleone@scaleway.com)
+[rleone@scaleway.com](mailto:achrafahrach@gmail.com)
 
 ## ✅ Evaluation Criteria
 

@@ -1,0 +1,74 @@
+version: '3'
+
+services:
+
+  wordpress:
+    build: ./wordpress/
+    restart: always
+    container_name: wordpress
+    env_file:
+      - .env
+    networks:
+      - Shared
+    volumes:
+      - wordpress:/var/www/html/
+    ports:
+      - "8080:80"
+  nginx:
+    build: ./nginx/
+    restart: always
+    container_name: nginx
+    env_file:
+      - .env
+    networks:
+      - Shared
+    volumes:
+      - wordpress:/var/www/html/
+    ports:
+      - "443:443"
+      - "80:80"
+    depends_on:
+      - wordpress
+
+  phpmyadmin:
+    depends_on:
+      - db
+    env_file:
+      - .env
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin-cont
+    restart: always
+    networks:
+      - Shared
+    ports:
+      - "8081:80"
+
+  db:
+    build: ./mariadb/
+    restart: always
+    container_name: mariadb
+    env_file:
+      - .env
+    volumes:
+      - mariadb:/var/lib/mysql
+    networks:
+      - Shared
+    depends_on:
+      - wordpress
+
+networks:
+  Shared:
+
+volumes:
+  wordpress:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /etc/files
+  mariadb:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /etc/db

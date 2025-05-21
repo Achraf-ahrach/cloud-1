@@ -87,7 +87,7 @@ vim .env
 
 Fill in required variables like database password, domain, etc.
 
-### 🔐 Encrypting your `.env` file with Ansible Vault
+4. Encrypt your `.env` with Ansible Vault: 🔐
 
 To keep your sensitive environment variables secure, encrypt your `.env` file before deploying:
 
@@ -109,3 +109,59 @@ ansible-vault encrypt .env --output rules/templates/data.j2
   5. Run the playbook:
 
      Execute the Ansible playbook to deploy the entire stack:
+
+     ```
+     ansible-playbook -i inventory.ini playbook.yml --ask-vault-pass
+     ```
+
+     6.Access your application:
+
+- Open your browser and visit your server’s IP or configured domain
+- Complete the WordPress setup wizard
+
+## 📦 Services
+
+| Service    | Port | Container Name | Purpose               |
+| ---------- | ---- | -------------- | --------------------- |
+| WordPress  | 9000 | wordpress      | Blogging platform     |
+| PhpMyAdmin | 8080 | phpmyadmin     | DB management         |
+| MariaDB    | 3306 | mariadb        | SQL database backend  |
+| Nginx      | 443  | nginx          | Reverse proxy + HTTPS |
+
+## 🔄 Features
+
+- Automated provisioning with Ansible
+- Fully containerized architecture (1 container = 1 process)
+- Persistent data volumes for durability
+- Secure access with restricted public exposure
+- TLS support (Let's Encrypt or custom certificates)
+- Scalable for multi-server deployment
+
+## 🔐 Security Notes
+
+- SSH access via key authentication only
+- Database not exposed to public network
+- Environment variables encrypted and handled securely
+- Keep Vault password confidential and off public repos
+
+## 📝 Notes
+
+- You may use Scaleway, AWS, GCP, or any provider of your choice.
+- Free DNS providers like DuckDNS or `.tk` domains are supported.
+- Always shut down unused servers and services to avoid costs.
+- The deployment persists across server reboots and retains data integrity.
+
+## 📫 Contact
+
+**Rémy Léone**
+
+[rleone@scaleway.com]()
+
+## ✅ Evaluation Criteria
+
+- [x] Fully automated deployment with Ansible (or similar)
+- [x] Functional WordPress site with all services running in separate containers
+- [x] Data persistence after reboot
+- [x] Secure, limited public access configuration
+- [x] Valid Docker Compose setup
+- [x] TLS and domain name handling (optional but appreciated)

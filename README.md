@@ -73,7 +73,7 @@ cd cloud-1
 
 
 
-2. **Clone this repository:**
+2. **Configure inventory:**
 
 Edit `inventory.ini` and replace with your server's IP:
 

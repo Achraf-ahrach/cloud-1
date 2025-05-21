@@ -60,6 +60,8 @@ The infrastructure includes:
 
 ### 🔐 Set Up
 
+
+
 1. **Clone this repository:**
 
 Clone this repository:
@@ -68,6 +70,8 @@ Clone this repository:
 git clone github.com:Achraf-ahrach/cloud-1.git
 cd cloud-1
 ```
+
+
 
 2. **Clone this repository:**
 
@@ -78,6 +82,8 @@ Edit `inventory.ini` and replace with your server's IP:
 cloud-1-vm1 ansible_host=YOUR.SERVER.IP ansible_user=root ansible_ssh_private_key_file=~/.ssh/id_ed25519
 ```
 
+
+
 3. **Create and configure `.env`:**
 
 ```
@@ -86,6 +92,8 @@ vim .env
 ```
 
 Fill in required variables like database password, domain, etc.
+
+
 
 4. **Encrypt your `.env` with Ansible Vault: 🔐**
 
@@ -107,6 +115,8 @@ ansible-vault encrypt .env --output rules/templates/data.j2
   > - Keep your Vault password safe and **never commit it to any public repository** .
 
 
+
+
 5. **Run the playbook:**
 
      Execute the Ansible playbook to deploy the entire stack:
@@ -114,6 +124,8 @@ ansible-vault encrypt .env --output rules/templates/data.j2
      ```
      ansible-playbook -i inventory.ini playbook.yml --ask-vault-pass
      ```
+
+
 
 
 6. **Access your application:**

@@ -63,7 +63,7 @@ The infrastructure includes:
 1. **Clone this repository:**
 
 ```bash
-git clone https://github.com/Achraf-ahrach/cloud-1.git
+git clone git@github.com:Achraf-ahrach/cloud-1.git
 cd cloud-1
 ```
 

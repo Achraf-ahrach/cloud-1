@@ -106,7 +106,8 @@ ansible-vault encrypt .env --output rules/templates/data.j2
   > - You will be prompted to enter a Vault password during encryption and when running the playbook.
   > - Keep your Vault password safe and **never commit it to any public repository** .
 
-  5. **Run the playbook:**
+
+5. **Run the playbook:**
 
      Execute the Ansible playbook to deploy the entire stack:
 
@@ -114,7 +115,8 @@ ansible-vault encrypt .env --output rules/templates/data.j2
      ansible-playbook -i inventory.ini playbook.yml --ask-vault-pass
      ```
 
-     6. **Access your application:**
+
+6. **Access your application:**
 
 - Open your browser and visit your server’s IP or configured domain
 - Complete the WordPress setup wizard

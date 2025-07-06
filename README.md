@@ -6,6 +6,8 @@
 
 This project is an extension of the **Inception** subject at 42, focusing on **automating** the deployment of a containerized WordPress setup. Each component of the infrastructure is containerized and orchestrated via Docker Compose, while Ansible handles remote provisioning and setup.
 
+![Vagrant Architecture Diagram](./vagrant-diagram.png)
+
 The infrastructure includes:
 
 - 🔧 WordPress
